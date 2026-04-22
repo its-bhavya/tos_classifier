@@ -205,5 +205,5 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-model/legal_bert_checkpoint/model.safetensors
-model/legal_bert_checkpoint/model.safetensors
+models/legal_bert_checkpoint/model.safetensors
+models/legal_bert_checkpoint/model.safetensors
