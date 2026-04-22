@@ -107,3 +107,55 @@ test_df["predicted_label"] = [label_names[p] for p in all_preds]
 test_df["true_label"]      = [label_names[l] for l in all_labels]
 test_df.to_csv(f"{RESULTS_DIR}/test_predictions.csv", index=False)
 print("test_predictions.csv exported for Member B ✓")
+
+
+# ── Classical-ML Baselines: 5-fold CV, macro-F1 ────────
+# Task 9: stratified 5-fold CV on the train split for LogReg / SVM-RBF / RF.
+# TF-IDF is fit inside each fold via a Pipeline to avoid train/test leakage.
+from sklearn.base import clone
+from sklearn.model_selection import StratifiedKFold, cross_val_score
+from sklearn.pipeline import Pipeline
+
+from src.features import build_tfidf_vectorizer
+from src.models import all_models
+
+
+def cross_validate_macro_f1(
+    texts,
+    labels,
+    models=None,
+    n_splits: int = 5,
+    random_state: int = 42,
+) -> pd.DataFrame:
+    """Run stratified k-fold CV on each model and return per-fold macro-F1."""
+    models = models or all_models()
+    cv = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=random_state)
+
+    rows = {}
+    for name, est in models.items():
+        pipe = Pipeline(
+            [("tfidf", build_tfidf_vectorizer()), ("clf", clone(est))]
+        )
+        rows[name] = cross_val_score(
+            pipe, texts, labels, cv=cv, scoring="f1_macro", n_jobs=-1
+        )
+
+    out = pd.DataFrame(rows).T
+    out.columns = [f"fold_{i + 1}" for i in range(n_splits)]
+    fold_cols = list(out.columns)
+    out["mean"] = out[fold_cols].mean(axis=1)
+    out["std"] = out[fold_cols].std(axis=1)
+    return out
+
+
+if __name__ == "__main__":
+    train_df = pd.read_csv(
+        f"{BASE_DIR}/data/preprocessed/train.csv"
+    ).dropna(subset=["title", "label"])
+    cv_scores = cross_validate_macro_f1(
+        train_df["title"].astype(str), train_df["label"]
+    )
+    print("\n── Classical Baselines: 5-fold CV (macro-F1) ─────")
+    print(cv_scores.round(4).to_string())
+    cv_scores.to_csv(f"{RESULTS_DIR}/cv_macro_f1.csv")
+    print(f"CV scores saved → {RESULTS_DIR}/cv_macro_f1.csv")
