@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os, sys
 
-sys.path.insert(0, "/content/tos_classifier/src/tos_classifier/src")
+sys.path.insert(0, "/content/tos_classifier/src")
 from dataset import ClauseDataset
 
 from torch.utils.data import DataLoader
@@ -15,7 +15,7 @@ from torch.optim import AdamW
 from sklearn.metrics import f1_score
 
 # ── Paths ──────────────────────────────────────────────
-BASE_DIR    = "/content/tos_classifier/src/tos_classifier"
+BASE_DIR    = "/content/tos_classifier"
 TRAIN_PATH  = f"{BASE_DIR}/data/preprocessed/train.csv"
 VAL_PATH    = f"{BASE_DIR}/data/preprocessed/val.csv"
 MODEL_NAME  = "nlpaueb/legal-bert-base-uncased"
