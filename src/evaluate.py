@@ -3,20 +3,23 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from torch.utils.data import DataLoader
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-from sklearn.metrics import (f1_score, accuracy_score, precision_score,
-                             recall_score, matthews_corrcoef, confusion_matrix,
-                             classification_report)
-import umap
-import os
+import os, sys
 
+sys.path.insert(0, "/content/tos_classifier/src/tos_classifier/src")
 from dataset import ClauseDataset
 
+from torch.utils.data import DataLoader
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from sklearn.metrics import (f1_score, accuracy_score,
+                             matthews_corrcoef, confusion_matrix,
+                             classification_report)
+import umap
+
 # ── Paths ──────────────────────────────────────────────
-TEST_PATH   = "../data/processed/test.csv"
-MODEL_DIR   = "../models/legal_bert_checkpoint"
-RESULTS_DIR = "../results"
+BASE_DIR    = "/content/tos_classifier/src/tos_classifier"
+TEST_PATH   = f"{BASE_DIR}/data/preprocessed/test.csv"
+MODEL_DIR   = f"{BASE_DIR}/models/legal_bert_checkpoint"
+RESULTS_DIR = f"{BASE_DIR}/results"
 MAX_LEN     = 256
 BATCH_SIZE  = 16
 
@@ -36,7 +39,7 @@ model.eval()
 test_dataset = ClauseDataset(TEST_PATH, tokenizer, MAX_LEN)
 test_loader  = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False)
 
-# ── Run Inference ──────────────────────────────────────
+# ── Inference ──────────────────────────────────────────
 all_preds, all_labels, all_embeddings = [], [], []
 
 with torch.no_grad():
@@ -51,23 +54,21 @@ with torch.no_grad():
             output_hidden_states=True
         )
 
-        # CLS token embedding from last hidden state
-        cls_embeddings = outputs.hidden_states[-1][:, 0, :].cpu().numpy()
-        all_embeddings.append(cls_embeddings)
+        cls_emb = outputs.hidden_states[-1][:, 0, :].cpu().numpy()
+        all_embeddings.append(cls_emb)
 
         preds = torch.argmax(outputs.logits, dim=1)
         all_preds.extend(preds.cpu().numpy())
         all_labels.extend(labels.cpu().numpy())
 
 all_embeddings = np.vstack(all_embeddings)
+label_names    = ["good", "neutral", "bad"]
 
 # ── Metrics ────────────────────────────────────────────
-label_names = ["good", "neutral", "bad"]
-
-print("\n── Test Set Results ──────────────────────────")
-print(f"Accuracy  : {accuracy_score(all_labels, all_preds):.4f}")
-print(f"Macro F1  : {f1_score(all_labels, all_preds, average='macro'):.4f}")
-print(f"MCC       : {matthews_corrcoef(all_labels, all_preds):.4f}")
+print("\n── Test Set Results ──────────────────────")
+print(f"Accuracy : {accuracy_score(all_labels, all_preds):.4f}")
+print(f"Macro F1 : {f1_score(all_labels, all_preds, average='macro'):.4f}")
+print(f"MCC      : {matthews_corrcoef(all_labels, all_preds):.4f}")
 print("\nPer-class Report:")
 print(classification_report(all_labels, all_preds, target_names=label_names))
 
@@ -81,30 +82,24 @@ plt.ylabel("True Label")
 plt.xlabel("Predicted Label")
 plt.tight_layout()
 plt.savefig(f"{RESULTS_DIR}/confusion_matrix.png")
-print(f"\nConfusion matrix saved")
+print("Confusion matrix saved ✓")
 
-# ── UMAP Embeddings ────────────────────────────────────
-print("\nRunning UMAP (this takes ~1-2 min)...")
-reducer    = umap.UMAP(n_components=2, random_state=42)
+# ── UMAP ───────────────────────────────────────────────
+print("\nRunning UMAP...")
+reducer       = umap.UMAP(n_components=2, random_state=42)
 embeddings_2d = reducer.fit_transform(all_embeddings)
 
 colors = {0: "green", 1: "gold", 2: "red"}
 plt.figure(figsize=(9, 6))
 for label_id, label_name in enumerate(label_names):
     idx = np.array(all_labels) == label_id
-    plt.scatter(
-        embeddings_2d[idx, 0],
-        embeddings_2d[idx, 1],
-        c=colors[label_id],
-        label=label_name,
-        alpha=0.5,
-        s=10
-    )
+    plt.scatter(embeddings_2d[idx, 0], embeddings_2d[idx, 1],
+                c=colors[label_id], label=label_name, alpha=0.5, s=10)
 plt.title("UMAP of Legal-BERT CLS Embeddings")
 plt.legend()
 plt.tight_layout()
 plt.savefig(f"{RESULTS_DIR}/umap_embeddings.png")
-print("UMAP plot saved")
+print("UMAP saved ✓")
 
 # ── Export Predictions for Member B ───────────────────
 test_df = pd.read_csv(TEST_PATH)

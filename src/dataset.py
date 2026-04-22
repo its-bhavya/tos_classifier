@@ -7,16 +7,14 @@ LABEL_MAP = {"good": 0, "neutral": 1, "bad": 2}
 class ClauseDataset(Dataset):
     def __init__(self, csv_path, tokenizer, max_len=256):
         self.df = pd.read_csv(csv_path)
-
-        # Clean: drop rows with missing text or label
-        self.df = self.df.dropna(subset=["clause", "label"])
+        self.df = self.df.dropna(subset=["title", "label"])
         self.df = self.df[self.df["label"].isin(LABEL_MAP.keys())]
         self.df = self.df.reset_index(drop=True)
 
-        self.texts = self.df["clause"].tolist()
+        self.texts  = self.df["title"].tolist()
         self.labels = self.df["label"].map(LABEL_MAP).tolist()
         self.tokenizer = tokenizer
-        self.max_len = max_len
+        self.max_len   = max_len
 
         print(f"Loaded {len(self.df)} samples from {csv_path}")
         print(self.df["label"].value_counts())
@@ -33,7 +31,7 @@ class ClauseDataset(Dataset):
             return_tensors="pt"
         )
         return {
-            "input_ids": enc["input_ids"].squeeze(),
+            "input_ids":      enc["input_ids"].squeeze(),
             "attention_mask": enc["attention_mask"].squeeze(),
-            "labels": torch.tensor(self.labels[idx], dtype=torch.long)
+            "labels":         torch.tensor(self.labels[idx], dtype=torch.long)
         }
