@@ -8,4 +8,6 @@ dependencies = [
     "aiohttp>=3.13.5",
     "pandas>=3.0.2",
     "scikit-learn>=1.8.0",
+    "spacy>=3.8.14",
+    "textstat>=0.7.13",
 ]
