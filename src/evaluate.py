@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os, sys
 
-sys.path.insert(0, "/content/tos_classifier/src/tos_classifier/src")
+sys.path.insert(0, "/content/tos_classifier/src")
 from dataset import ClauseDataset
 
 from torch.utils.data import DataLoader
@@ -16,7 +16,7 @@ from sklearn.metrics import (f1_score, accuracy_score,
 import umap
 
 # ── Paths ──────────────────────────────────────────────
-BASE_DIR    = "/content/tos_classifier/src/tos_classifier"
+BASE_DIR    = "/content/tos_classifier"
 TEST_PATH   = f"{BASE_DIR}/data/preprocessed/test.csv"
 MODEL_DIR   = f"{BASE_DIR}/models/legal_bert_checkpoint"
 RESULTS_DIR = f"{BASE_DIR}/results"
