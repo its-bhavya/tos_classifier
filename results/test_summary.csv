@@ -1,0 +1,4 @@
+model,accuracy,precision_macro,recall_macro,f1_macro,mcc,f1_bad,f1_good,f1_neutral
+logreg,0.8112,0.83,0.7928,0.7963,0.7216,0.8246,0.7097,0.8545
+svm_rbf,0.8392,0.8551,0.8203,0.8238,0.7651,0.8421,0.7302,0.8991
+random_forest,0.8182,0.8172,0.7967,0.7995,0.725,0.8491,0.6875,0.8621

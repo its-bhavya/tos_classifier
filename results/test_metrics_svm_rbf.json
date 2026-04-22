@@ -1,0 +1,42 @@
+{
+  "model": "svm_rbf",
+  "train_size": 665,
+  "test_size": 143,
+  "class_labels": [
+    "bad",
+    "good",
+    "neutral"
+  ],
+  "test_class_counts": {
+    "neutral": 57,
+    "bad": 49,
+    "good": 37
+  },
+  "accuracy": 0.8391608391608392,
+  "precision_macro": 0.8551282051282051,
+  "recall_macro": 0.8202875270544444,
+  "f1_macro": 0.8237821873746548,
+  "mcc": 0.7651290501972431,
+  "f1_per_class": {
+    "bad": 0.8421052631578947,
+    "good": 0.7301587301587301,
+    "neutral": 0.8990825688073395
+  },
+  "confusion_matrix": [
+    [
+      48,
+      0,
+      1
+    ],
+    [
+      12,
+      23,
+      2
+    ],
+    [
+      5,
+      3,
+      49
+    ]
+  ]
+}
