@@ -1,0 +1,38 @@
+{
+  "model": "legal_bert",
+  "model_dir": "C:\\Users\\Bhavya\\Desktop\\projects\\tos_classifier\\models\\legal_bert_checkpoint",
+  "test_csv": "data\\preprocessed\\test.csv",
+  "n": 143,
+  "accuracy": 0.8601398601398601,
+  "precision_macro": 0.8729441305712492,
+  "recall_macro": 0.8526818977946796,
+  "f1_macro": 0.8570187102525412,
+  "mcc": 0.7908039130067405,
+  "f1_per_class": {
+    "good": 0.835820895522388,
+    "neutral": 0.8648648648648649,
+    "bad": 0.8703703703703703
+  },
+  "class_labels": [
+    "good",
+    "neutral",
+    "bad"
+  ],
+  "confusion_matrix": [
+    [
+      28,
+      4,
+      5
+    ],
+    [
+      2,
+      48,
+      7
+    ],
+    [
+      0,
+      2,
+      47
+    ]
+  ]
+}

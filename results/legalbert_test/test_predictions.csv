@@ -1,0 +1,144 @@
+title,label,service_id,service_name,category,true_label,predicted_label
+Users can request access and deletion of personal info.,good,185,Netflix,"You can request access, correction and/or deletion of your data",good,good
+Prohibits political discussions which are against the government-advocated value,bad,2702,Douban,Political discussions which are against the government-advocated value are prohibited,bad,neutral
+The service does not use any third-party advertising services,good,4691,RethinkDNS,The service does not use any third-party advertising services,good,neutral
+You can limit how your information is used by third-parties and the service,good,2895,Line Corporation,You can limit how your information is used by third-parties and the service,good,good
+Archives of the Privacy Statement are provided,good,3580,Yleisradio,Archives of their agreements are provided so that changes can be viewed over time,good,good
+Simply Earth is only available to users over 18 years old,neutral,3716,Simply Earth,This service is only available to users over a certain age,neutral,neutral
+Any liability on behalf of the service is only limited to the past 6 months of fees you paid as a user not exceeding $100,bad,1553,Speedtest by Ookla,Any liability on behalf of the service is only limited to the fees you paid as a user,bad,bad
+You are tracked via browser fingerprinting and device fingerprinting,bad,4304,Ouigo,"You are tracked via web beacons, tracking pixels, browser fingerprinting, and/or device fingerprinting",bad,bad
+[UK] Your personal data may be used for marketing purposes,bad,4024,Just Eat,Your personal data may be used for marketing purposes,bad,bad
+Your personal data is aggregated into statistics,neutral,327,RiseUp.net,Your personal data is aggregated into statistics,neutral,bad
+"The court of law governing the terms is in a jurisdiction that is less friendly to user privacy protection (NY, USA)",bad,2848,BlueMail,The court of law governing the terms is in a jurisdiction that is less friendly to user privacy protection,bad,bad
+[Parsec Users] You waive your moral rights,bad,2768,Unity,You waive your moral rights,bad,bad
+Prohibits public posting of private messages,good,183,CouchSurfing,You aren’t allowed to publicly post private messages,good,neutral
+The service uses your personal data for advertising,bad,251,Foursquare,Your personal data is used for advertising,bad,bad
+No need to register,good,165,Goodreads,No need to register,good,neutral
+The service provides a complaint mechanism for the handling of personal data,good,2416,BitDefender,A complaint mechanism is provided for the handling of personal data,good,good
+The service may use device fingerprinting on users.,bad,2498,Element,"You are tracked via web beacons, tracking pixels, browser fingerprinting, and/or device fingerprinting",bad,bad
+Any liability on behalf of the service is only limited to the fees you paid as a user or 100$,bad,1468,Ziff Davis,Any liability on behalf of the service is only limited to the fees you paid as a user,bad,bad
+An anonymous payment method is offered,good,2669,AirVPN,An anonymous payment method is offered,good,good
+Any liability on behalf of the service is only limited to USD $10,bad,2201,Jitsi,Any liability on behalf of the service is only limited to the fees you paid as a user,bad,bad
+"Instead of asking directly, this Service will assume your consent to changes of terms merely from your usage.",bad,3202,Synology,"Instead of asking directly, this Service will assume your consent to changes of terms merely from your usage",bad,bad
+Minors (13-18 years) must have the authorization of their legal guardians to use the service,neutral,4521,Gettr,Minors must have the authorization of their legal guardians to use the service,neutral,neutral
+"You can request access, correction and/or deletion of your data",good,306,Mega,"You can request access, correction and/or deletion of your data",good,good
+Third parties used by the service are bound by confidentiality obligations,good,262,Symbaloo,Third parties used by the service are bound by confidentiality obligations,good,good
+Terms and privacy policy pages are organized and formatted well.,good,185,Netflix,The terms for this service are easy to read,good,good
+This service only shares user information with third parties when given specific consent,good,2220,AnonAddy,Your information is only shared with third parties when given specific consent,good,good
+The service can read your private messages,bad,183,CouchSurfing,Private messages can be read,bad,bad
+This service uses third-party cookies for statistics,bad,183,CouchSurfing,Third-party cookies are used for statistics,bad,bad
+This service tracks you on social media and public databases.,bad,185,Netflix,This service tracks you on other websites,bad,bad
+Security incidents are reported to the authorities,neutral,3181,Headspace,Security incidents are reported to the authorities,neutral,good
+This service ignores the Do Not Track (DNT) header and tracks users anyway even if they set this header.,neutral,511,MyAnimeList,Do Not Track (DNT) headers are ignored and you are tracked anyway even if you set this header,neutral,neutral
+The court of law governing the terms is India,neutral,11617,DigiPaws,The court of law governing the terms is in location X,neutral,neutral
+ The service is only available in some countries approved by US government,bad,3335,Realestate.com.au, The service is only available in some countries approved by its government,bad,bad
+Any liability on behalf of the service is only limited to 1000€,bad,305,eBuddy,Any liability on behalf of the service is only limited to the fees you paid as a user,bad,bad
+The service does not index or open files that you upload,good,3202,Synology,The service does not index or open files that you upload,good,good
+ You are being tracked via social media cookies,bad,3153,Météo France, You are being tracked via social media cookies/pixels,bad,bad
+The service deletes tracking data after a period of time and allows you to opt out,good,591,Ecosia,The service deletes tracking data after a period of time and allows you to opt out,good,good
+"You are tracked via web beacons, tracking pixels and device fingerprinting",bad,989,Washington Post,"You are tracked via web beacons, tracking pixels, browser fingerprinting, and/or device fingerprinting",bad,bad
+"This service does not collect, use, or share location data",good,2669,AirVPN,"This service does not collect, use, or share location data",good,good
+This service may keep personal data after a request for erasure for business interests or legal obligations,bad,306,Mega,Some personal data may be kept for business interests or legal obligations,bad,bad
+"This service collects your IP address, which can be used to view your approximate location",neutral,306,Mega,"Your IP address is collected, which can be used to view your approximate location",neutral,neutral
+You must use your real name to sign up for a team account,bad,1447,Observable,"You must provide your legal name, pseudonyms are not allowed",bad,bad
+You are not being tracked,good,2878,Yewtu.be,You are not being tracked,good,good
+SmartThings keeps a license on user-generated content even after users close their accounts.,bad,3428,SmartThings,A license is kept on user-generated content even after you close your account,bad,bad
+You agree to indemnify and hold the service harmless in case of a claim related to your use of the service,neutral,4528,Tubi,You agree to indemnify and hold the service harmless in case of a claim related to your use of the service,neutral,neutral
+Tracking via third-party cookies for other purposes without your consent.,bad,2315,Fandango,Third-party cookies are used for advertising,bad,bad
+[COOKIES] There is a date of the last update of the agreements,neutral,10665,Vouchley,There is a date of the last update of the agreements,neutral,neutral
+There is a date of the last update of the terms,neutral,511,MyAnimeList,There is a date of the last update of the agreements,neutral,neutral
+The court of law governing the terms is in a jurisdiction that is friendlier to user privacy protection (CH),good,3540,RTS (Radio Télévision Suisse),The court of law governing the terms is in a jurisdiction that is friendlier to user privacy protection,good,good
+The service does not guarantee that software errors will be corrected,bad,989,Washington Post,The service does not guarantee that software errors will be corrected,bad,neutral
+Uber can transfer the TOS to affiliates and successors without your consent,bad,252,Uber,Your personal data may be sold or otherwise transferred as part of a bankruptcy proceeding or other type of financial transaction,bad,bad
+"defend, indemnify, hold harmless",neutral,576,Atlassian,"You agree to defend, indemnify, and hold the service harmless in case of a claim related to your use of the service",neutral,neutral
+"They can delete any of your data (files, music, messages, etc.) at any time and without notice",bad,291,iCloud,Specific content can be deleted without reason and may be removed without prior notice,bad,bad
+This service is only available to users that are at least 18 years old,neutral,7032,GeeksforGeeks,This service is only available to users over a certain age,neutral,neutral
+Any liability on behalf of the service is only limited to one month of the fees you paid as a user or $50,bad,1352,MySudo,Any liability on behalf of the service is only limited to the fees you paid as a user,bad,bad
+"The court of law governing the terms is in location Madrid, Spain",neutral,2539,Marca,The court of law governing the terms is in location X,neutral,neutral
+The service may give prior notice before closing your account,good,2532,Authy (Twilio),30 days of notice are given before closing your account,good,bad
+This service receives your precise location through GPS coordinates,bad,262,Symbaloo,This service receives your precise location through GPS coordinates,bad,bad
+This service is only available to users that are 18 years of age or older,neutral,2195,Wolt,This service is only available to users over a certain age,neutral,neutral
+Information is provided about how they collect personal data,good,460,Credit Karma,Information is provided about how they collect personal data,good,good
+"The service may use tracking pixels, web beacons and device fingerprinting on users.",bad,1741,Discovery,"You are tracked via web beacons, tracking pixels, browser fingerprinting, and/or device fingerprinting",bad,bad
+you can leave at any time,good,527,Qwant,You have the right to leave this service at any time,good,good
+Any liability on behalf of the service's beta is only limited to the fees you paid as a user,bad,1339,Amazon AWS,Any liability on behalf of the service is only limited to the fees you paid as a user,bad,bad
+Google Ad is used for advertising,bad,3153,Météo France,Third-party cookies are used for advertising,bad,bad
+The terms for this service are translated into different languages,neutral,327,RiseUp.net,The terms for this service are translated into different languages,neutral,neutral
+"Spidering, crawling, or accessing the site through any automated means is not allowed except with permission",neutral,226,eBay,"Spidering, crawling, or accessing the site through any automated means is not allowed",neutral,neutral
+The service warns you of the potential consequences related to third-party access,good,460,Credit Karma,You are warned of the potential consequences related to third-party access,good,good
+The payment service is arranged through a third party service provider outside the home country,neutral,2195,Wolt,Third parties are involved in operating the service,neutral,neutral
+The service may keep a secure record of your data for analytical purposes even after the data retention period,bad,2518,FamilyTreeDNA,"The service may keep a secure, anonymized record of your data for analytical purposes even after the data retention period",bad,bad
+A free help desk is provided for questions regarding data protection,good,3580,Yleisradio,A free help desk is provided,good,good
+" Terms may be changed any time at their discretion, without notice to you ",bad,460,Credit Karma," Terms may be changed any time at their discretion, without notice to you ",bad,bad
+ Pseudonyms are allowed,good,251,Foursquare,Pseudonyms are allowed,good,bad
+Couchsurfing becomes the owner of ideas you give them,bad,183,CouchSurfing,"If you offer suggestions to the service, they become the owner of the ideas that you give them",bad,bad
+The service uses your personal data is used for advertising,bad,317,Fox News,Your personal data is used for advertising,bad,bad
+Your biometric data is collected,bad,2315,Fandango,Your biometric data is collected,bad,bad
+Third parties are involved in operating the service (Google Cloud Platform and Amazon Web Services),neutral,1713,FaceApp,Third parties are involved in operating the service,neutral,neutral
+Your Personal data may be sold unless you live in California and you opt out,bad,4514,Booking.com,Your Personal data may be sold unless you opt out,bad,bad
+court of law is in location X,neutral,527,Qwant,The court of law governing the terms is in location X,neutral,neutral
+The service can intervene in user disputes,neutral,165,Goodreads,The service can intervene in user disputes,neutral,bad
+Third parties may be involved in operating the service,neutral,460,Credit Karma,Third parties are involved in operating the service,neutral,neutral
+Third parties are involved in operating delivery services,neutral,2195,Wolt,Third parties are involved in operating the service,neutral,neutral
+You must create a Google account to use this service,neutral,4139,MIT App Inventor,You must create an account to use this service,neutral,neutral
+"If Amnesty International shares personal information outside the EU, it is processed to an EU standard",good,614,Amnesty International Limited (UK),Personal information that is shared outside its jurisdiction is processed according to the original jurisdiction’s data protection standards,good,good
+No guarantee is given regarding quality,neutral,846,Crunchyroll,No guarantee is given regarding quality,neutral,neutral
+you are responsible for what you publish,neutral,527,Qwant,You are responsible for maintaining the security of your account and for the activities on your account,neutral,neutral
+Tracking pixels (cookies or web beacons) are used in service-to-user communication,bad,3716,Simply Earth,Tracking pixels are used in service-to-user communication,bad,bad
+"Users should revisit the terms periodically, although in case of material changes, the service will notify",neutral,327,RiseUp.net,"You should revisit the terms periodically, although in case of material changes, the service will notify",neutral,neutral
+ You may be tracked via social media cookies/pixels,bad,2120,Alibaba, You are being tracked via social media cookies/pixels,bad,bad
+You must provide your identifiable information,bad,251,Foursquare,You must provide your identifiable information,bad,bad
+You aren’t allowed to publicly post private messages,good,846,Crunchyroll,You aren’t allowed to publicly post private messages,good,bad
+"[ToS] The terms may be changed at any time, but you will receive notification of the changes",neutral,6686,Leetify,"The terms may be changed at any time, but you will receive notification of the changes",neutral,good
+You must create an account to use this service,neutral,183,CouchSurfing,You must create an account to use this service,neutral,neutral
+"This service can use your content, with some exceptions, for all their existing and future services",neutral,2202,Turnitin,This service can use your content for all their existing and future services,neutral,neutral
+"The court of law governing the terms is in Amsterdam, Netherlands",neutral,2929,Wish,The court of law governing the terms is in location X,neutral,neutral
+"This service requires first-party cookies, which are cookies that only belong to the domain of the service and not a third party.",neutral,534,Kahoot!,First-party cookies are used,neutral,bad
+Only aggregate data is given to third parties,neutral,2416,BitDefender,Only aggregate data is given to third parties,neutral,bad
+"Users agree not to submit libelous, harassing or threatening content",neutral,327,RiseUp.net,"You agree not to submit libelous, harassing or threatening content",neutral,neutral
+The service refers users to external documents for more information,neutral,591,Ecosia,The service informs you that its privacy policy does not apply to third party websites,neutral,bad
+Tracking pixels are used in service-to-user communication,bad,306,Mega,Tracking pixels are used in service-to-user communication,bad,bad
+The court of law governing the terms is in location France,neutral,2579,Pearltrees,The court of law governing the terms is in location X,neutral,neutral
+"You should revisit the terms of Yle ID periodically, although in case of material changes, you will be notified",neutral,3580,Yleisradio,"You should revisit the terms periodically, although in case of material changes, the service will notify",neutral,neutral
+No third-party tracking platforms are used,good,1694,Mailfence,No third-party analytics or tracking platforms are used,good,neutral
+The court of law governing the terms is in a jurisdiction that is less friendly to user privacy protection (Belize),bad,826,FileFactory,The court of law governing the terms is in a jurisdiction that is less friendly to user privacy protection,bad,bad
+You can opt out of providing personal information to third parties,good,826,FileFactory,You can opt out of providing personal information to third parties,good,good
+The service does not use third-party analytics or tracking platforms,good,327,RiseUp.net,No third-party analytics or tracking platforms are used,good,good
+This service employs separate policies for different parts of the service,neutral,1581,HideMyAss!,Separate policies are employed for different parts of the service,neutral,bad
+The service promises to inform you regarding government inquiries that may involve your personal data,good,2195,Wolt,The service promises to inform and/or notify you regarding government inquiries that may involve your personal data,good,good
+"The service may change its terms at any time, but the user will receive notification of the changes.",neutral,2895,Line Corporation,"The terms may be changed at any time, but you will receive notification of the changes",neutral,neutral
+"The court of law governing the terms is in a jurisdiction that is less friendly to user privacy protection (Ontario, Canada)",bad,1362,Wattpad,The court of law governing the terms is in a jurisdiction that is less friendly to user privacy protection,bad,bad
+Your personal data is used for limited purposes,good,327,RiseUp.net,Your personal data is used for limited purposes,good,bad
+No VPN logs policy,good,2795,Veepn,Only necessary logs are kept by the service to ensure quality,good,good
+This service is only available to users 13+,neutral,1357,Minds,This service is only available to users over a certain age,neutral,neutral
+"The court of law governing the terms is in a jurisdiction that is less friendly to user privacy protection (Arkansas, USA)",bad,3362,APK Pure,The court of law governing the terms is in a jurisdiction that is less friendly to user privacy protection,bad,bad
+EU Residents can retrieve an archive of their data,good,1575,Enpass,You can retrieve an archive of your data,good,good
+"The court of law governing the terms is in location California, USA",neutral,2207,hCaptcha,The court of law governing the terms is in location X,neutral,neutral
+"The court of law governing the terms is in a jurisdiction that is friendlier to user privacy protection. (California, USA)",good,4516,Audacity,The court of law governing the terms is in a jurisdiction that is friendlier to user privacy protection,good,good
+The court of law governing the terms is in location England and Wales,neutral,2498,Element,The court of law governing the terms is in location X,neutral,neutral
+This Service provides a list of Third Parties involved in its operation.,good,989,Washington Post,This Service provides a list of Third Parties involved in its operation,good,good
+Many different types of personal data are collected,bad,511,MyAnimeList,Many different types of personal data are collected,bad,bad
+"The court of law governing the terms is in the Province of Ontario, Canada",neutral,2758,XE.com,The court of law governing the terms is in location X,neutral,neutral
+You are responsible for maintaining the security of your account and for the activities on your account,neutral,511,MyAnimeList,You are responsible for maintaining the security of your account and for the activities on your account,neutral,neutral
+The court of law governing the terms is in State of California,neutral,2995,Among Us,The court of law governing the terms is in location X,neutral,neutral
+You agree to comply with the law of the service's country,neutral,3181,Headspace,You agree to comply with the law of the service's country,neutral,neutral
+Apple's Services and Content Usage Rules (App Store/Media Services ToS) are also applied on the iOS app,neutral,2195,Wolt,"Other applicable rules, terms, conditions or guidelines",neutral,neutral
+Third-party privacy-focused cookies are used for statistics,bad,2748,IVPN,Third-party cookies are used for statistics,bad,bad
+The court of law governing the terms is in the State of California,neutral,846,Crunchyroll,The court of law governing the terms is in location X,neutral,neutral
+"""The Roblox Terms are governed by the laws of the State of California without regard to conflict of law principles.""",neutral,1336,Roblox,The court of law governing the terms is in location X,neutral,neutral
+You cannot distribute or disclose your account to third parties,neutral,460,Credit Karma,You cannot distribute or disclose your account to third parties,neutral,bad
+" Terms of Use may be changed any time at their discretion, without notice to the user ",bad,1007,Brainly," Terms may be changed any time at their discretion, without notice to you ",bad,bad
+The service can sell or otherwise transfer your personal data as part of a bankruptcy proceeding or other type of financial transaction.,bad,183,CouchSurfing,Your personal data may be sold or otherwise transferred as part of a bankruptcy proceeding or other type of financial transaction,bad,bad
+The court of law governing the terms is in Finland.,neutral,1377,Upcloud,The court of law governing the terms is in location X,neutral,neutral
+The court of law governing the terms is in Czech Republic,neutral,3137,BudgetBakers,The court of law governing the terms is in location X,neutral,neutral
+"The court of law governing the terms is in New York, USA.",neutral,2201,Jitsi,The court of law governing the terms is in location X,neutral,neutral
+Provides instructions on how to submit a copyright claim,neutral,306,Mega,Instructions are provided on how to submit a copyright claim,neutral,neutral
+You have one year to take legal action against the service,bad,2617,Open Collective,You have a reduced time period to take legal action against the service,bad,bad
+You can generally opt out of targeted advertising,good,2453,iFunny,You can opt out of targeted advertising,good,good
+This service is only available to users over a certain age (13 or 16),neutral,3587,Wickr Me,This service is only available to users over a certain age,neutral,neutral
+Your content can be distributed through any media ,neutral,262,Symbaloo,Your content can be distributed through any media known now or in the future,neutral,neutral
+The service promises to inform and/or notify you regarding government inquiries that may involve your personal data,good,3160,Rofkin,The service promises to inform and/or notify you regarding government inquiries that may involve your personal data,good,good
+The court of law governing the terms is in New York state,neutral,2947,Skillshare,The court of law governing the terms is in location X,neutral,neutral
+The court of law governing the terms is in a jurisdiction that is less friendly to user privacy protection (England),bad,2716,CyberGhost,The court of law governing the terms is in a jurisdiction that is less friendly to user privacy protection,bad,bad
+You can terminate your account,good,276,SoundCloud,You have the right to leave this service at any time,good,bad
+There is a date of the last update of the agreements (8 December 2023),neutral,7344,Meower,There is a date of the last update of the agreements,neutral,neutral

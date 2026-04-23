@@ -1,0 +1,30 @@
+Legal-BERT test-set evaluation
+model_dir : C:\Users\Bhavya\Desktop\projects\tos_classifier\models\legal_bert_checkpoint
+test_csv  : data\preprocessed\test.csv
+n         : 143
+
+accuracy         : 0.8601
+precision (macro): 0.8729
+recall    (macro): 0.8527
+macro F1         : 0.8570
+MCC              : 0.7908
+
+per-class F1:
+  good    : 0.8358
+  neutral : 0.8649
+  bad     : 0.8704
+
+              precision    recall  f1-score   support
+
+        good     0.9333    0.7568    0.8358        37
+     neutral     0.8889    0.8421    0.8649        57
+         bad     0.7966    0.9592    0.8704        49
+
+    accuracy                         0.8601       143
+   macro avg     0.8729    0.8527    0.8570       143
+weighted avg     0.8688    0.8601    0.8592       143
+
+confusion matrix (rows=true, cols=pred, order=['good', 'neutral', 'bad']):
+[[28  4  5]
+ [ 2 48  7]
+ [ 0  2 47]]
