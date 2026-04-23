@@ -109,6 +109,7 @@ src/
   explain.py          # SHAP token attributions for Legal-BERT
   segment.py          # clause segmentation (regex + spaCy)
   fetch_data.py       # URL fetch + segment for the demo
+  summarize.py        # group BAD clauses by theme + distilbart summary
 demo/
   app.py              # Gradio demo
 models/
@@ -147,6 +148,10 @@ All scripts use `from src...` imports, so invoke from the project root with `-m`
 ```
 
 The demo accepts either a pasted ToS text block or a URL, segments it into clauses, predicts `good / neutral / bad` with confidence scores, and renders an overall document risk score. URL fetching uses browser-like headers but sites behind strong bot-protection (Facebook, LinkedIn, Cloudflare challenge pages) will still block — paste the text directly in that case.
+
+### Theme-wise red-flag summary
+
+`src/summarize.py` buckets BAD-labeled clauses into eight themes (data sharing, tracking, forced arbitration, unilateral changes, termination, content licensing, liability, jurisdiction) via keyword matching, then generates a 1-2 sentence abstractive summary per theme using [`sshleifer/distilbart-cnn-12-6`](https://huggingface.co/sshleifer/distilbart-cnn-12-6) (loaded lazily via `AutoModelForSeq2SeqLM`). The summary panel replaces the raw clause dump; individual clauses remain in the per-clause table below. First run downloads ~300 MB of model weights to the HF cache.
 
 ---
 
