@@ -1,8 +1,8 @@
-# ToS Classifier
+# ToS Classifier — Classical ML Baselines
 
-Classify Terms-of-Service clauses as **good**, **neutral**, or **bad** using classical ML baselines (Logistic Regression, SVM-RBF, Random Forest) and, on a separate track, Legal-BERT.
+Classify Terms-of-Service clauses as **good**, **neutral**, or **bad** using three classical ML baselines: Logistic Regression, SVM (RBF), and Random Forest.
 
-This README documents the classical-baseline pipeline end to end — dataset, steps, and results — including a leakage incident that was found and fixed along the way.
+This README documents the full pipeline — dataset, steps, and results — including a leakage incident that was found and fixed along the way.
 
 ---
 
@@ -23,8 +23,6 @@ This README documents the classical-baseline pipeline end to end — dataset, st
 
 Label mapping note: ToSDR's `blocker` class is remapped to `bad` inside the fetcher.
 
-**Augmented data.** `data/augmented_datasets/` additionally contains CUAD (commercial contracts) and OPP-115 (privacy policies) mapped to the same three-label schema. These are used on the Legal-BERT track for cross-domain experiments and are **not** part of the classical-baseline numbers below.
-
 ---
 
 ## Pipeline
@@ -33,7 +31,7 @@ Label mapping note: ToSDR's `blocker` class is remapped to `bad` inside the fetc
 Async ToSDR pull (8-way concurrency, exponential backoff). Filters for comprehensively reviewed services and writes `data/clauses.csv`.
 
 ### 2. Clean train/val/test split — `src/split_data.py`
-Deduplicates by `title` (11,729 → 950 unique clauses), then stratified 70/15/15 on `label` with seed 42. Writes `data/preprocessed/{train,val,test}.csv`. Supersedes the earlier `data/preprocessing/preprocessing.ipynb` notebook.
+Deduplicates by `title` (11,729 → 950 unique clauses), then stratified 70/15/15 on `label` with seed 42. Writes `data/preprocessed/{train,val,test}.csv`.
 
 Resulting split sizes: **665 / 142 / 143**. Zero overlap across splits.
 
@@ -67,8 +65,11 @@ All use `class_weight='balanced'` (labels are skewed toward `neutral`).
 ### 6. 5-fold stratified cross-validation — `src/evaluate.py`
 `cross_validate_macro_f1()` runs `StratifiedKFold(5)` on the train split. TF-IDF is fit **inside each fold** via a `Pipeline` so vocabulary never leaks from val fold into train fold. Reports macro-F1 and writes `results/cv_macro_f1.csv`.
 
-### 7. Confusion matrices — `src/confusion.py`
-Trains each baseline on train, predicts on val, and writes per-model PNGs to `results/confmat_{logreg,svm_rbf,random_forest}.png`.
+### 7. Validation confusion matrices — `src/confusion.py`
+Trains each baseline on train, predicts on val, and writes per-model PNGs to `results/val/confmat_{logreg,svm_rbf,random_forest}.png`.
+
+### 8. Held-out test evaluation — `src/test_eval.py`
+Trains each baseline on train, evaluates on the untouched test split, and writes per-model metrics (JSON), classification reports (TXT), confusion matrices (PNG), plus a combined `results/test/test_summary.csv`.
 
 ---
 
@@ -97,7 +98,17 @@ Trained on `train.csv` (665 clauses), evaluated on `val.csv` (142 clauses; class
 | **SVM (RBF)** | **0.8732** | **0.8704** |
 | Random Forest | 0.8310 | 0.8229 |
 
-Per-class F1 on the clean val split ranges **0.76–0.89**. The `good` class is the hardest (smallest support: 37 clauses). These are the honest baseline numbers to compare Legal-BERT against.
+### Clean-split held-out test results
+
+Trained on `train.csv` (665 clauses), evaluated on `test.csv` (143 clauses):
+
+| Model | Accuracy | Macro F1 | MCC | F1 (good) | F1 (neutral) | F1 (bad) |
+|---|---|---|---|---|---|---|
+| Logistic Regression | 0.8112 | 0.7963 | 0.7216 | 0.7097 | 0.8545 | 0.8246 |
+| **SVM (RBF)** | **0.8392** | **0.8238** | **0.7651** | 0.7302 | 0.8991 | 0.8421 |
+| Random Forest | 0.8182 | 0.7995 | 0.7250 | 0.6875 | 0.8621 | 0.8491 |
+
+Per-class F1 ranges 0.69–0.90. The `good` class remains the hardest (smallest support). Full artifacts: `results/test/`.
 
 ---
 
@@ -107,27 +118,28 @@ Per-class F1 on the clean val split ranges **0.76–0.89**. The `good` class is 
 data/
   clauses.csv                        # raw ToSDR dump
   preprocessed/{train,val,test}.csv  # clean, deduped, stratified splits
-  augmented_datasets/                # CUAD + OPP-115 (Legal-BERT track)
-  preprocessing/                     # early split notebook (superseded)
 src/
   fetch_clauses.py    # ToSDR API fetcher
   split_data.py       # dedupe + stratified split
   preprocess.py       # hand-crafted text features
   features.py         # TF-IDF vectorizer
   models.py           # three baseline classifiers
-  evaluate.py         # 5-fold CV (+ Colab-shaped Legal-BERT eval)
+  evaluate.py         # 5-fold CV (macro-F1)
   confusion.py        # val-set confusion matrix PNGs
-  dataset.py, train.py, inference.py, explain.py, segment.py   # Legal-BERT track
+  test_eval.py        # held-out test evaluation
 results/
-  confmat_*.png
-  cv_macro_f1.csv
+  val/                # val-split confusion matrices
+  test/               # test-split metrics, reports, confmats, summary
+  eda/                # dataset EDA plots
+notebooks/
+  01_eda.ipynb, 02_testing_balancing_strategies.ipynb, ...
 ```
 
 ---
 
 ## How to run
 
-All scripts import siblings via `from src...`, so always invoke from the project root with the `-m` flag (direct `python src/foo.py` will fail with `ModuleNotFoundError: No module named 'src'`):
+All scripts import siblings via `from src...`, so always invoke from the project root with the `-m` flag:
 
 ```bash
 # rebuild clean splits from data/clauses.csv
@@ -136,14 +148,9 @@ All scripts import siblings via `from src...`, so always invoke from the project
 # 5-fold CV macro-F1 for all three baselines -> results/cv_macro_f1.csv
 .venv/Scripts/python.exe -m src.evaluate
 
-# val-set confusion matrices -> results/confmat_*.png
+# val-set confusion matrices -> results/val/confmat_*.png
 .venv/Scripts/python.exe -m src.confusion
+
+# held-out test evaluation -> results/test/*
+.venv/Scripts/python.exe -m src.test_eval
 ```
-
----
-
-## Known caveats / next steps
-
-- `src/evaluate.py` still carries Colab-hardcoded paths (`/content/tos_classifier/...`) in its Legal-BERT section. The classical `cross_validate_macro_f1` block at the bottom is portable.
-- `torch`, `transformers`, `umap` are used by the Legal-BERT code but aren't declared in `pyproject.toml`.
-- 950 unique clauses is a small dataset — the classical baselines are already in the 0.83–0.87 macro-F1 range, leaving a narrow ceiling. Legal-BERT's incremental value should be measured on these **same clean splits** before any comparison is made.

@@ -1,7 +1,7 @@
 """Generate confusion-matrix PNGs for the classical baselines.
 
 Trains each model from `src.models.all_models()` on the train split, predicts
-on the validation split, and saves `results/confmat_<name>.png` per model.
+on the validation split, and saves `results/val/confmat_<name>.png` per model.
 """
 
 from __future__ import annotations
@@ -20,7 +20,7 @@ from src.models import all_models
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data" / "preprocessed"
-RESULTS_DIR = PROJECT_ROOT / "results"
+RESULTS_DIR = PROJECT_ROOT / "results" / "val"
 
 
 def _plot_confusion(cm, labels, title: str, out_path: Path) -> None:

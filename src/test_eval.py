@@ -2,7 +2,7 @@
 
 Trains each model in `src.models.all_models()` on `train.csv`, evaluates on
 `test.csv`, and writes per-model artifacts plus a combined summary into
-`results/`.
+`results/test/`.
 """
 
 from __future__ import annotations
@@ -30,7 +30,7 @@ from src.models import all_models
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_ROOT / "data" / "preprocessed"
-RESULTS_DIR = PROJECT_ROOT / "results"
+RESULTS_DIR = PROJECT_ROOT / "results" / "test"
 
 
 def _evaluate_one(name, est, X_tr, y_tr, X_te, y_te, class_labels):
