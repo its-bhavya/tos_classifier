@@ -23,7 +23,7 @@ SAVE_DIR    = f"{BASE_DIR}/models/legal_bert_checkpoint"
 RESULTS_DIR = f"{BASE_DIR}/results"
 
 # ── Hyperparameters ────────────────────────────────────
-EPOCHS     = 4
+EPOCHS     = 15
 BATCH_SIZE = 16
 LR         = 2e-5
 MAX_LEN    = 256
