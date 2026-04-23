@@ -2,6 +2,10 @@
 
 Classify Terms-of-Service clauses as **good**, **neutral**, or **bad** with a fine-tuned Legal-BERT model, compared against three classical ML baselines (Logistic Regression, SVM-RBF, Random Forest). Ships with a Gradio demo that segments a pasted ToS / URL, labels each clause, and scores the overall document risk.
 
+<img width="1896" height="652" alt="Screenshot 2026-04-23 181747" src="https://github.com/user-attachments/assets/c5919faf-3f2b-4802-bd68-8b180f7e4533" />
+<img width="1899" height="816" alt="Screenshot 2026-04-23 181802" src="https://github.com/user-attachments/assets/5924a0aa-6796-4a77-9823-eb4abe9bac37" />
+<img width="1890" height="913" alt="Screenshot 2026-04-23 181811" src="https://github.com/user-attachments/assets/c1ac1c5c-3056-487a-a794-0782d306c1ac" />
+
 ---
 
 ## Dataset
