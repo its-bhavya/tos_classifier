@@ -6,6 +6,7 @@ import gradio as gr
 from src.segment import segment_into_clauses
 from src.fetch_data import fetch_and_segment
 from src.inference import predict_batch
+from src.summarize import group_bad_clauses, build_theme_summaries, render_bad_summary_html
 
 
 def classify_tos(input_text: str, input_url: str) -> tuple:
@@ -91,7 +92,9 @@ def classify_tos(input_text: str, input_url: str) -> tuple:
         </table>
     </div>"""
 
-    return risk_html, table_html, f"✅ Done. {total} clauses analysed."
+    summary_html = render_bad_summary_html(build_theme_summaries(group_bad_clauses(clauses, predictions)))
+
+    return summary_html + risk_html, table_html, f"✅ Done. {total} clauses analysed."
 
 
 with gr.Blocks(title="ToS Risk Classifier", theme=gr.themes.Soft()) as demo:
