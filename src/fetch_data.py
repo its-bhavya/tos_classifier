@@ -13,11 +13,30 @@ def fetch_and_segment(url: str) -> tuple:
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
             "AppleWebKit/537.36 (KHTML, like Gecko) "
             "Chrome/120.0.0.0 Safari/537.36"
-        )
+        ),
+        "Accept": (
+            "text/html,application/xhtml+xml,application/xml;q=0.9,"
+            "image/avif,image/webp,*/*;q=0.8"
+        ),
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Upgrade-Insecure-Requests": "1",
+        "Sec-Fetch-Dest": "document",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Site": "none",
+        "Sec-Fetch-User": "?1",
     }
     try:
-        response = requests.get(url, headers=headers, timeout=15)
+        session = requests.Session()
+        response = session.get(url, headers=headers, timeout=15, allow_redirects=True)
         response.raise_for_status()
+    except requests.exceptions.HTTPError as e:
+        code = e.response.status_code if e.response is not None else "?"
+        raise ValueError(
+            f"Site blocked the request (HTTP {code}). "
+            f"Many sites (Facebook, LinkedIn, Cloudflare-protected pages) "
+            f"reject non-browser traffic. Paste the ToS text directly instead."
+        )
     except requests.exceptions.RequestException as e:
         raise ValueError(f"Could not fetch URL: {e}")
 
